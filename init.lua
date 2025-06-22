@@ -1,3 +1,10 @@
+--[[
+Add autopairs
+Add autocomplete html tag
+add ctrl s bind back
+disable word wrap
+]]
+--
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -83,17 +90,16 @@ vim.o.confirm = true
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
-
 -- Keagans Keybinds
 
 -- Opens the split terminal pressing Space+T
 vim.keymap.set('n', '<leader><CR>', function()
   -- If terminal is open, close it; otherwise, open it
-  local terminals = vim.fn.getbufinfo({ buflisted = 1 })
+  local terminals = vim.fn.getbufinfo { buflisted = 1 }
   local found_term = false
 
   for _, buf in ipairs(terminals) do
-    if buf.name:match("term://") then
+    if buf.name:match 'term://' then
       vim.api.nvim_buf_delete(buf.bufnr, { force = true })
       found_term = true
       break
@@ -101,12 +107,11 @@ vim.keymap.set('n', '<leader><CR>', function()
   end
 
   if not found_term then
-    vim.cmd("split | terminal")
+    vim.cmd 'split | terminal'
   end
-end, { desc = "Toggle terminal" })
+end, { desc = 'Toggle terminal' })
 
 vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>')
-
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -923,7 +928,6 @@ require('lazy').setup({
   require 'plugins.nvim-tree',
   require 'plugins.cyberdream',
   require 'plugins.nightfox',
-
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
