@@ -30,7 +30,10 @@ return {
         disable_move, -- boolean default is false disable move key
         shortcut = {
         -- action can be a function type
-        { desc = "Open File Tree", group = '', key = 'f', action = '<leader>t' },},
+        { desc = "Open File Tree", group = 'DashboardBlue', key = 'f', action = function() vim.cmd('NvimTreeToggle') end },
+        { desc = "Quit", group = 'DashboardBlue', key = 'q', action = function() vim.cmd('q') end },
+      
+      },
         packages = { enable = true },
       },
     }

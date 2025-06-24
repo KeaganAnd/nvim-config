@@ -62,6 +62,9 @@ vim.o.timeoutlen = 300
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+-- Highlight Groups
+vim.api.nvim_set_hl(0, 'DashboardBlue', { fg = '#61afef' })
+
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
@@ -91,7 +94,8 @@ vim.o.confirm = true
 --  See `:help vim.keymap.set()`
 
 -- Keagans Keybinds
-
+vim.keymap.set('n', '<C-s>', ':w<CR>')
+vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a')
 -- Opens the split terminal pressing Space+T
 vim.keymap.set('n', '<leader><CR>', function()
   -- If terminal is open, close it; otherwise, open it
@@ -925,7 +929,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE TO SELF (Keagan) Add Plugins after adding to plugins folder
-  {import = 'plugins'}
+  { import = 'plugins' },
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
