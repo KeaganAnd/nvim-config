@@ -925,9 +925,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE TO SELF (Keagan) Add Plugins after adding to plugins folder
-  require 'plugins.nvim-tree',
-  require 'plugins.cyberdream',
-  require 'plugins.nightfox',
+  {import = 'plugins'}
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
