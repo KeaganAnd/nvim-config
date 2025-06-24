@@ -1,12 +1,7 @@
---[[
-Add autopairs
-Add autocomplete html tag
-add ctrl s bind back
-disable word wrap
-]]
+
 --
 -- Set <space> as the leader key
--- See `:help mapleader`
+
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -90,8 +85,7 @@ vim.o.scrolloff = 15
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
+vim.o.wrap = false
 
 -- Keagans Keybinds
 vim.keymap.set('n', '<C-s>', ':w<CR>')
